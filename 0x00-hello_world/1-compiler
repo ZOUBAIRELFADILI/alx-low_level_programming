@@ -1,0 +1,4 @@
+#!/bin/bash
+CFILE=$CFILE
+OFILE=${CFILE%.c}.o
+gcc -c $CFILE -o $OFILE
