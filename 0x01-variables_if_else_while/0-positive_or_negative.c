@@ -5,7 +5,7 @@
 int main(void)
 {
     srand(time(NULL));
-    int n = rand() % 201 - 100; // n will be a random number between -100 and 100, inclusive
+    int n = rand() - RAND_MAX/2; // n will be a random number between -100 and 100, inclusive
 
     printf("%d ", n);
 
