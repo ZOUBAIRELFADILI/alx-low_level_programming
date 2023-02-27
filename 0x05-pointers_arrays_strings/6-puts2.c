@@ -11,6 +11,7 @@ void puts2(char *str)
 {
 	int i;
 	int len = 0;
+
 	if (str == 0)
 		return;
 
