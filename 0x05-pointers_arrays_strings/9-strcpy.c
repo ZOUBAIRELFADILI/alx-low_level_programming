@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * _strcpy - copies the syring pointed to by src, including the terminating null byte (\0),to the buffer pointed to by dest.
+ * _strcpy - copies the syring pointed to by src.
  *
  * @dest: the destination buffer
  * @src: the source string
@@ -15,13 +15,12 @@ char *_strcpy(char *dest, char *src)
 	char *ret = dest;
 
 	if (dest == 0 || src == 0)
-		return 0;
+		return (0);
 
-	
-	while (*src) {
+	while (*src)
+	{
 		*dest++ = *src++;
 	}
 	*dest = '\0';
-	
-	return ret;
+	return (re)t;
 }
