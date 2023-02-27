@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
  *puts2 - prints every character of a string
  *@str: A pointer to an int that will be changed
@@ -9,13 +9,16 @@
 
 void puts2(char *str)
 {
-int a;
+	int i;
+	int len = 0;
+	if (str == 0)
+		return;
 
-for (a = 0; str[a] != '\0'; a++)
-{
-if (a % 2 == 0)
-_putchar (str[a]);
-}
+	while (*(str + len))
+		len++;
 
-_putchar ('\n');
+	for (i = 0; i < len; i += 2)
+		putchar(*(str + i));
+
+	putchar('\n');
 }
