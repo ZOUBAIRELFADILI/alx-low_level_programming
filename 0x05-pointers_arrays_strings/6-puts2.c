@@ -17,7 +17,7 @@ void puts2(char *str)
 		len++;
 
 	for (i = 0; i < len; i += 2)
-		printf(*(str + i));
+		_putchar(*(str + i));
 
-	putchar('\n');
+	_putchar('\n');
 }
