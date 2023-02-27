@@ -8,7 +8,7 @@
  *Return: void which means our answer is correct
  */
 
-void print_rev(chr *s)
+void print_rev(char *s)
 {
 	int len = 0;
 	while (s[len] != '\0')
