@@ -11,10 +11,12 @@
 
 char *_strcpy(char *dest, char *src)
 {
-	if (dest == NULL || src == NULL)
-		return NULL;
-
 	char *ret = dest;
+
+	if (dest == 0 || src == 0)
+		return 0;
+
+	
 	while (*src) {
 		*dest++ = *src++;
 	}
