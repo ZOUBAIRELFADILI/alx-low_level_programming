@@ -18,7 +18,7 @@ char *_strncpy(char *dest, char *src, int n)
 	}
 
 	/* Pad dest with null bytes if necessary */
-	for (; i < n; i++){
+	for (i = 0; i < n; i++){
 		dest[i] = '\0';
 	}
 
