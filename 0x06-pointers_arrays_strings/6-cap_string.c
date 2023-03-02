@@ -1,44 +1,31 @@
 #include "main.h"
-#include <stdio.h>
-
 /**
- * cap_string - Capitalizes all words of a string
- * @str: The string to modify
- *
- * Return: A pointer to the modified string
+ * cap_string - capitalizes all words of a string
+ * @s: input string.
+ * Return: the pointer to dest.
  */
 
-char *cap_string(char *str)
+
+char *cap_string(char *s)
 {
-	int i;
+int count = 0, i;
+int separators[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
 
-	if (str[0] >= 'a' && str[0] <= 'z')
-		str[0] = str[0] - 32;
-	
-	for (i = 1; str[i] != '\0'; i++)
-	{
-		switch (str[i])
-		{
-			case ' ':
-			case '\t':
-			case '\n':
-			case ',':
-			case ';':
-			case '.':
-			case '!':
-			case '?':
-			case '\"':
-			case '(':
-			case ')':
-			case '{':
-			case '}':
-				if (str[i + 1] >= 'a' && str[i + 1] <= 'z')
-					str[i + 1] = str[i + 1] - 32;
-				break;
-			default:
-				break;
-		}
-	}
-
-	return (str);
+if (*(s + count) >= 97 && *(s + count) <= 122)
+*(s + count) = *(s + count) - 32;
+count++;
+while (*(s + count) != '\0')
+{
+for (i = 0; i < 13; i++)
+{
+if (*(s + count) == separators[i])
+{
+if ((*(s + (count + 1)) >= 97) && (*(s + (count + 1)) <= 122))
+*(s + (count + 1)) = *(s + (count + 1)) - 32;
+break;
+}
+}
+count++;
+}
+return (s);
 }
