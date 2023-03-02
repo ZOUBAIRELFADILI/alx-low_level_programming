@@ -10,5 +10,6 @@ char *string_toupper(char *);
 char *leet(char *);
 char *cap_string(char *);
 char *rot13(char *);
+void print_nember(int n);
 
 #endif /* MAIN_H */
