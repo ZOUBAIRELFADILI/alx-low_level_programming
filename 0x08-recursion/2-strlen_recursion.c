@@ -8,7 +8,7 @@
  */
 int _strlen_recursion(char *s)
 {
-	/ base case */
+	/* base case */
 		if (*s == '\0')
 			return (0);
 	/* recursive cas */
