@@ -2,7 +2,6 @@
 #include <stdio.h>
 /**
  * factorial - returns the factorial of a given number
- *
  * factorial_helper - recursive helper function for factorial
  * 
  * @n: the number to calculate the factorial of
@@ -22,8 +21,8 @@ int factorial_helper(int n, int acc)
 /**
  * factorial_helper - recursive helper function for factorial
  * factorial - returns the factorial of a given number
- * @n: the number to calculate the factorial of
  *
+ * @n: the number to calculate the factorial of
  * Return: the factorial of n, or -1 if n is less than 0
  */
 int factorial(int n)
