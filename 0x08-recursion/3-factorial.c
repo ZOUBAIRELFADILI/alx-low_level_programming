@@ -1,31 +1,19 @@
 #include "main.h"
-#include <stdio.h>
 /**
- * factorial - returns the factorial of a given number
- * factorial_helper - recursive helper function for factorial
- * 
- * @n: the number to calculate the factorial of
- * @acc: the accumulator value for the calculation
- * Return: the factorial of n, or -1 if n is less than 0
+ *factorial - factorial of a given number
+ *@n: pointer block of memory to fill
+ *Return: factorial
  */
-int factorial_helper(int n, int acc)
-{
-	if (n < 0)
-		return (-1);
 
-	if (n == 0)
-		return (acc);
-	return (factorial_helper(n - 1, n * acc));
-}
-
-/**
- * factorial_helper - recursive helper function for factorial
- * factorial - returns the factorial of a given number
- *
- * @n: the number to calculate the factorial of
- * Return: the factorial of n, or -1 if n is less than 0
- */
 int factorial(int n)
 {
-	return (factorial_helper(n, 1));
+if (n == 0) /*Base condition*/
+
+return (1);
+
+else if (n < 0) /*Base condition*/
+return (-1);
+else
+return (n * factorial(n - 1)); /*Recursive call*/
+
 }
