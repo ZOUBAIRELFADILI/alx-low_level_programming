@@ -11,7 +11,7 @@
  *
  * Return: The number of words in the string
  */
-static int word_count(char *str)
+static int count_words(char *str)
 {
 	int count = 0;
 	int in_word = 0;
@@ -29,40 +29,51 @@ static int word_count(char *str)
 	}
 	return (count);
 }
+/**
+ * strtow - Splits a string into words.
+ * @str: The string to split.
+ *
+ * Return: A pointer to an array of strings (words)..or NULL...
+ */
+
 char **strtow(char *str)
 {
 	char **words;
-	int word_count, i = 0;
+	int num_words, i = 0;
 	char *word_start, *word_end;
 	
 	if (str == NULL || *str == '\0')
 		return (NULL);
-	word_count = word_count(str);
-	if (word_count == 0)
+	num_words = count_words(str);
+	if (num_words == 0)
 		return (NULL);
-	while (*str)
-	{
-		if (*str == DELIMITER)
-		{
-			str++;
-			continue;
-		}
-		word_start = str;
-		while (*str && *str != DELIMITER)
-			str++;
-		word_end = str - 1;
-		words[i] = malloc((word_end - word_start + 2) * sizeof(char));
-		if (words[i] == NULL)
-		{
-			while (--i >= 0)
-				free(words[i]);
-			free(words);
+	
+		words = malloc((num_words + 1) * sizeof(char *));
+		if (words == NULL)
 			return (NULL);
+		while (*str)
+		{
+			if (*str == DELIMITER)
+			{
+				str++;
+
+				continue;
+			}
+			word_start = str;
+			while (*str && *str != DELIMITER)
+				str++;
+			word_end = str - 1;
+			words[i] = malloc((word_end - word_start + 2) * sizeof(char));
+			if (words[i] == NULL)
+			{
+				while (--i >= 0)
+					free(words[i]);
+				free(words);
+				return (NULL);
+			}
+			strncpy(words[i], word_start, word_end - word_start + 1);
+			words[i][word_end - word_start + 1] = '\0';
 		}
-		strncpy(words[i], word_start, word_end - word_start + 1);
-		words[i][word_end - word_start + 1] = '\0';
-		i++;
-	}
-	words[i] = NULL;
-	return (words);
+		word[i] = NULL;
+		return (words);
 }
