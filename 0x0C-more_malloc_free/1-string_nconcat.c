@@ -2,7 +2,7 @@
 /**
  * string_nconcat - Concatentes two strings
  * @s1: First string
- * @s2: Second string 
+ * @s2: Second string
  * @n: Maximum number of bytes of s2 to concatebate
  *
  * Return: Pointer to the newly allocateed space in memory
