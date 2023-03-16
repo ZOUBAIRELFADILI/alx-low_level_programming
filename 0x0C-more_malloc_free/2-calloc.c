@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _calloc - Allocates memory for an array of nmemb elements of size bytes 
+ * _calloc - Allocates memory for an array of nmemb elements of size bytes
  * @nmemb: Number of elements in the array
  * @size: Size of each element in bytes
  *
