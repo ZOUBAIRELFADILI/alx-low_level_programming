@@ -8,7 +8,7 @@
  * Return: Pointer to the allocated memory
  * Exit with status value of 98 if malloc fails
  */
-void *malloc_checked(usigned int b)
+void *malloc_checked(signed int b)
 {
 	void *ptr = malloc(b);
 

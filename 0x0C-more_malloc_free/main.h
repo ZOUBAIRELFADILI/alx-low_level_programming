@@ -1,6 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
-
-void *malloc_checked(usigned int b);
+#include <stdlib.h>
+void *malloc_checked(signed int b);
 
 #endif /* MAIN_H */
