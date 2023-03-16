@@ -7,10 +7,10 @@
  *
  * Return: Pointer to the newly allocateed space in memory
  */
-char *string_nconcat(char *s1, char *s2, signed int n)
+char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *str;
-	signed int len1 = 0, len2 = 0, i, j;
+	unsigned int len1 = 0, len2 = 0, i, j;
 
 	if (s1 == NULL)
 		s1 = "";
@@ -24,7 +24,7 @@ char *string_nconcat(char *s1, char *s2, signed int n)
 
 	if (n >= len2)
 		n = len2;
-	str = malloc(sizeof(char) * (len2 + n + 1));
+	str = malloc(sizeof(char) * (len1 + n + 1));
 	if (str == NULL)
 		return (NULL);
 	for (i = 0; i < len1; i++)
