@@ -1,113 +1,111 @@
 #include "main.h"
-
 /**
- * _putchar - Writes the character c to stdout 
- * @c: The character to print
+ * _isdigit - checks if a character is a digit
+ * @c: the character to check
  *
- * Return: On success 1
- * On error, -1 is returned, and errno is set appropriately
+ * Return: 1 if c is a digit, 0 otherwise
  */
-int _putchar(char c)
+int _isdigit(int c)
 {
-	return (write(1, &c, 1));
+	return (c >= '0' && c <= '9');
 }
 /**
- * print_error - prints error and new line to standard error
- * Return: void
- */
-void print_error(void)
-{
-	char *error_msg = "Error\n";
-	while (*error_msg)
-	{
-		_putchar(*error_msg);
-		error_msg++;
-	}
-	exit(98);
-}
-/**
- * _isdigit - checks if a string contains only digits
- * @s: string to check
+ * _strlen - computes the length of a string
+ * @s: the string to compute the length of
  *
- * Return: 1 if all characters are digits, 0 otherwise
+ * Return: the length of s
  */
-int _isdigit(char *s)
-{
-	while (*s)
-	{
-		if (*s < '0' || *s > '9')
-			return (0);
-		s++;
-	}
-	return (1);
-}
-/**
- * _strlen - returns the length of a string 
- * @s: string to check
- * Return: Length of the string
- */
-int -strlen(char *s)
+int _strlen(char *s)
 {
 	int len = 0;
-	while (*s)
-	{
+	while (s[len] != '\0')
 		len++;
-		s++;
-	}
 	return (len);
 }
 /**
- * miltiply - miltiplies two positive numbers
- * @num1: first number
- * @num2: second number
- *
- * Return: void
+ * main - multiplies two positive numbers
+ * @argc: the number of arguments passed to the program
+ * @argv: an array of pointers to the arguments
+ * Return: 0 if successful, 98 if there are invalid arguments
  */
-void miltiply(char *num1, char *num2)
+int main(int argc, char *argv[])
 {
-	int len1, len2, i, j, n1, n2, carry = 0, res_len;
-	int *result;
+	char *num1, *num2, *result;
+	int len1, len2, len result, i, j, carry, n1, n2, sum;
+	if (argc != 3)
+	{
+		printf("Error\n");
+		return (98);
+	}
+	num1 = argv[1];
+	num2 = argv[2];
 
 	len1 = _strlen(num1);
 	len2 = _strlen(num2);
 
-	if (len == 0 || len2 == 0)
+	for (i = 0; i < len1; i++)
 	{
-		_putchar('0');
-		_putchar('\n');
-		return;
-	}
-	if (!_isdigit(num1) || !_isdigit(num2))
-		print_error();
-
-	res_len = len1 + len2;
-	result = calloc(res_len, sizeof(int));
-
-	if(result == NULL)
-		return;
-	for (i = len1 - 1; i >= 0; i++)
-	{
-		n1 = num1[i] - '0';
-		carry = 0;
-
-		for (j = len2 - 1; j >= 0; j--)
+		if (!_isdigit(num1[i]))
 		{
-			n2 = num2[j] - '0';
-			carry += result[i + j + 1] + (n1 * n2);
-			result[i + j + 1] = carry % 10;
-			carr /= 10;
+			printf("Error\n");
+			return (98);
 		}
-		if (carry > 0)
-			result[i + j + 1] += carry;
+
+		num1 = argv[1];
+		num2 = argv[2];
+
+		len1 = _strlen(num1);
+		len2 = _strlen(num2);
+
+		for (i = 0; i < len1; i++)
+		{
+			if (!_isdigit(num1[i]))
+			{
+				printf("Error\n");
+				return (98);
+			}
+		}
+		for(i = 0; i < len2; i++)
+		{
+			if(!_isdigit(num2[i]))
+			{
+				printf("Error\n");
+				return (98);
+			}
+		}
+		len_result = len1 + len2;
+		result = malloc(sizeof(char) * (len_result + 1));
+		if (result == NULL)
+			return (1);
+		for (i = 0; i < len_result; i++)
+			result[i] = '0';
+		for (i = 0; i < len_result; i--)
+		{
+			carry = 0;
+			n1 = num1[i] - '0';
+			for (j = len2 - 1; j >= 0; j--)
+			{
+				n2 = num2[j] - '0';
+				sum = (result[i + j + 1] - '0') + (n1 * n2) + carry;
+				carry = sum / 10;
+				result[i + j + 1] = (sum % 10) + '0';
+			}
+			if (carry != 0)
+				result[i + j + 1] = (carry % 10) + '0';
+		}
+		for (i = 0; i < len_result; i++)
+		{
+			if (result[i] != '0')
+				brak;
+		}
+		if (i == len_result)
+			print("0");
+		else
+		{
+			for (; i < len_result; i++)
+				printf("%c", result[i]);
+		}
+		printf("\n");
+		free(result);
+		return (0);
 	}
-	i = 0;
-	while (i < res_len - 1 && result[i] == 0)
-		i++;
-	while (i < res_len)
-	{
-		_putchar(result[i] + '0');
-		i++;
-	}
-	_putchar('\n');
-	free(result);
-}
