@@ -1,8 +1,11 @@
-#ifndef MAIN_H
-#define MAIN_H
-/* Function that prints a name */
+#ifndef FUNCTION_POINTERS_H
+#define FUNCTION_POINTERS_H
+
+#include <stddef.h> /* for size_t */
+
+/* Function that executes a function on each element of an array */
 void print_name(char *name, void (*f)(char *));
 void array_iterator(int *array, size_t size, void (*action)(int));
 
-#endif /* MAIN_H */
+#endif /* FUNCTION_POINTERS_H */
 
