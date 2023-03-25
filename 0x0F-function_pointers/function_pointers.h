@@ -1,12 +1,18 @@
 #ifndef FUNCTION_POINTERS_H
 #define FUNCTION_POINTERS_H
 
-#include <stddef.h> /* for size_t */
+/*
+ * File: function_pointers.h
+ *
+ * Desc: Header file containing prototypes for all functions
+ *       used in the 0x0E-function_pointers directory.
+ */
 
-/* Function that executes a function on each element of an array */
+#include <stdlib.h>
+
 void print_name(char *name, void (*f)(char *));
 void array_iterator(int *array, size_t size, void (*action)(int));
 int int_index(int *array, int size, int (*cmp)(int));
 
-#endif /* FUNCTION_POINTERS_H */
+#endif
 
